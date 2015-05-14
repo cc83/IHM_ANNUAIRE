@@ -1,4 +1,44 @@
 <div>
-<p>Name: {{currentUser.name}}</p>
-<p>Surname: {{currentUser.surname}}</p>
+<p>Nom: {{currentUser.name}}</p>
+<p>Prénom: {{currentUser.surname}}</p>
+  <p>Mail: {{currentUser.email}}</p>
+  <p>Site web: {{currentUser.website}}</p>
+
+  Mettre à jour ces informations :
+    <ul>
+    <li><input type='text' size='30' ng-model='updateSurname' placeholder='{{currentUser.surname}}'></li>
+    <li><input type='text' size='30' ng-model='updateName' placeholder='{{currentUser.name}}'> </li>
+    <li><input type='text' size='30' ng-model='updateMail' placeholder='{{currentUser.email}}'></li>
+    <li><input type='text' size='30' ng-model='updateWebsite' placeholder='{{currentUser.website}}'></li>
+      <li><input type='button' ng-click="updateUser(currentUser.id,updateName,updateSurname,updateMail,updateWebsite)" value="Valider"> </li>
+  </ul>
+
+
+    <h3>Les différents rôles de {{currentUser.surname}} dans ses projets: </h3>
+  <table class="table table-hover">
+    <tr>
+      <th>Rôle</th>
+      <th>Nom du projet</th>
+      <th>Année</th>
+      <th></th>
+    </tr>
+
+  <tr ng-repeat="role in currentRoles"  >
+    <td> {{role.name}}</td>
+    <td><a ng-href="#/projects/{{role.ProjectId}}">{{projectTitles[role.ProjectId]}}</a></td>
+    <td>{{projectYears[role.ProjectId]}}</td>
+    <td ng-click="deleteProjectUser(role.ProjectId,role.UserId)"><a >Supprimer</a></td>
+  </tr>
+  </table>
+
+
+  Ajouter un projet
+  <input type="text" ng-model="newProjectName">
+  <input type="text" ng-model="newProjectYear">
+  <input type="text" ng-model="role">
+  <input type="button" value="ok" ng-click="addProjectUser(newProjectName,newProjectYear,currentUser.id,role)">
+  <br/>
+  <span id="notfound" style="color: red"></span>
+
+
 </div>

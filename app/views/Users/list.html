@@ -1,6 +1,40 @@
 <div>
+
+  <span >Chercher un utilisateur par son nom de famille: <input type="text" ng-model="search.name"></span><br/>
+  <span >Chercher un utilisateur par son prénom: <input type="text" ng-model="search.surname"></span><br/>
+  <span>Ajouter un utilisateur
+    <input type="text" ng-model="creaSurname" placeholder="Prénom">
+    <input type="text" ng-model="creaName" placeholder="Nom">
+    <input type="email" ng-model="creaMail" placeholder="Mail">
+    <input type="url" ng-model="creaWebsite" placeholder="Site web">
+
+
+  <input type="button" ng-click="createUser(creaName,creaSurname,creaMail,creaWebsite)" value="Ajouter"></span>
+  <br/>
+
+
+  <br/>
+
 <h3>Liste des utilisateurs:</h3>
-<ul>
-<li ng-repeat="user in users"> {{user.name}}, {{user.surname}}</li>
-</ul>
+
+  <span id="error"> </span>
+
+<table  class="table table-hover">
+  <tr>
+    <th>Nom</th>
+    <th>Mail</th>
+    <th>Site web</th>
+
+    <th></th>
+  </tr>
+  <tr ng-repeat="user in users | filter:search" id="{{user.id}}">
+
+      <td><a ng-href="#/users/{{user.id}}">{{user.name+' '+user.surname}}</a></td>
+      <td>{{user.email}}</td>
+      <td>{{user.website}}</td>
+
+      <td ng-click="deleteUser(user.id)"><a>Supprimer</a></td>
+
+  </tr>
+</table>
 </div>

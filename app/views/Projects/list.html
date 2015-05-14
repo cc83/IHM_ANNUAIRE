@@ -1,10 +1,45 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+<div>
 
-</body>
-</html>
+
+
+
+  <span >Chercher un projet par son nom : <input type="text" ng-model="search.title"></span><br/>
+  <span >Chercher un projet par sa date: <input type="text" ng-model="search.year"></span><br/>
+  <span>Ajouter un Projet
+    <input type="text" ng-model="creaTitle" placeholder="Nom">
+    <input type="number" ng-model="creaYear" placeholder="Année">
+    <input type="text" size="100" ng-model="creaDesc" placeholder="Description">
+
+
+
+  <input type="button" ng-click="createProject(creaTitle,creaYear,creaDesc)" value="Ajouter"></span>
+
+
+
+
+
+
+
+
+
+  <h3>Liste des projets:</h3>
+
+  <table  class="table table-hover">
+    <tr>
+      <th>Nom du projet</th>
+      <th>Année</th>
+      <th>Description</th>
+
+      <th></th>
+    </tr>
+    <tr ng-repeat="project in projects | filter:search" id="{{project.id}}">
+
+      <td><a ng-href="#/projects/{{project.id}}">{{project.title}}</a></td>
+      <td>{{project.year}}</td>
+      <td>{{project.description}}</td>
+
+      <td ng-click="deleteProject(project.id)"><a>Supprimer</a></td>
+
+    </tr>
+  </table>
+</div>

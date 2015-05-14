@@ -1,5 +1,58 @@
 <div>
-<p>Name: {{currentUser.name}}</p>
-<p>Surname: {{currentUser.surname}}</p>
-  <p>{{currentUser}}</p>
+  <h1> Nom du projet : {{currentProject.title}}</h1>
+  <hr/>
+  <h3>Année : {{currentProject.year}}</h3>
+  <br/>
+  <p class="text-justify " >Description : {{currentProject.description}}</p>
+  <br/>
+
+  <h2>Mettre à jour les informations du projet</h2>
+  <form>
+    <label >Nom du projet</label>
+    <input class="form-control" type='text'  ng-model='updateTitle' placeholder="Entrez un nom de projet">
+    <label >Année</label>
+    <input class="form-control" type='year' ng-model='updateYear' placeholder='Entrez une année'>
+    <label >Description</label>
+    <textarea class="form-control" type='text' ng-model='updateDescription' placeholder='Description'>
+    </textarea>
+    <br/>
+    <button class="btn btn-default" type='submit' ng-click="updateProject(currentProject.id,updateTitle,updateYear,updateDescription)" >
+      Envoyer</button>
+  </form>
+
+  <h2> Liste des membres du projet</h2>
+  <table class="table table-hover">
+
+    <tr>
+      <th>Nom</th>
+      <th>Mail</th>
+      <th>Rôle dans le projet</th>
+
+      <th></th>
+    </tr>
+
+    <tr ng-repeat="user in currentUsers"  >
+    <td><a ng-href="#/users/{{user.id}}">{{user.name}} {{user.surname}}</a></td>
+      <td>{{user.email}}</td>
+    <td>{{roles[user.id]}}</td>
+    <td ><a ng-click="deleteUserProject(user.id,currentProject.id) "  >Supprimer du projet</a></td>
+
+  </tr>
+
+  </table>
+
+  <br/>
+  <h2>Ajouter un utilisateur</h2>
+  <input type="text" ng-model="newUserName">
+  <input type="text" ng-model="newUserSurname">
+  <input type="text" ng-model="role">
+  <input  type="button" value="ok" ng-click="addUserProject(newUserName,newUserSurname,currentProject.id,role)">
+  <br/>
+  <span id="notfound" class="text-danger"></span>
+
+
+  <br/>
+
+
+
 </div>
