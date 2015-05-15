@@ -1,26 +1,17 @@
 <div>
+  <h2>Ajouter un Projet</h2>
+    <input type="text" size="30" ng-model="creaTitle" placeholder="Nom">
+    <input type="number" style="margin-left:20%" ng-model="creaYear" placeholder=" Année">
+  <br/><br/>
+    <textarea class="form-control" type="text"  ng-model="creaDesc" placeholder="Description"></textarea>
+<br/>
+  <button class="btn btn-default" style="margin-left:42%" ng-click="createProject(creaTitle,creaYear,creaDesc)" >Ajouter</button>
 
-
-
-
-  <span >Chercher un projet par son nom : <input type="text" ng-model="search.title"></span><br/>
-  <span >Chercher un projet par sa date: <input type="text" ng-model="search.year"></span><br/>
-  <span>Ajouter un Projet
-    <input type="text" ng-model="creaTitle" placeholder="Nom">
-    <input type="number" ng-model="creaYear" placeholder="Année">
-    <input type="text" size="100" ng-model="creaDesc" placeholder="Description">
-
-
-
-  <input type="button" ng-click="createProject(creaTitle,creaYear,creaDesc)" value="Ajouter"></span>
-
-
-
-
-
-
-
-
+<h2>Rechercher un projet</h2>
+  <label>Nom</label>
+ <input class="form-control" type="text" ng-model="search.title">
+  <label>Année</label>
+ <input class="form-control" type="text" ng-model="search.year">
 
   <h3>Liste des projets:</h3>
 

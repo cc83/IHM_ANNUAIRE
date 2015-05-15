@@ -118,7 +118,7 @@ angular.module('pooIhmExemplesApp')
       $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Projects?title='+title+'&year='+year)
         .success(function(data) {
           if (data.count == 0){
-            document.getElementById('notfound').innerHTML = "Aucun projet trouvé ayant pour nom "+title+'datant de '+year;
+            document.getElementById('notfound').innerHTML = "Aucun projet trouvé ayant pour nom "+title+' datant de '+year;
             return;
           }
           document.getElementById('notfound').innerHTML = "";

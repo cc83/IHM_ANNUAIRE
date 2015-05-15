@@ -1,21 +1,28 @@
 <div>
 
-  <span >Chercher un utilisateur par son nom de famille: <input type="text" ng-model="search.name"></span><br/>
-  <span >Chercher un utilisateur par son prénom: <input type="text" ng-model="search.surname"></span><br/>
-  <span>Ajouter un utilisateur
-    <input type="text" ng-model="creaSurname" placeholder="Prénom">
-    <input type="text" ng-model="creaName" placeholder="Nom">
-    <input type="email" ng-model="creaMail" placeholder="Mail">
-    <input type="url" ng-model="creaWebsite" placeholder="Site web">
+  <h2>Ajouter un utilisateur</h2>
+  <input type="text" ng-model="creaSurname" placeholder="Prénom">
+  <input type="text" ng-model="creaName" placeholder="Nom">
+  <input type="email" ng-model="creaMail" placeholder="Mail">
+  <input size="25" type="url" ng-model="creaWebsite" placeholder="Site web">
+
+  <br/><br/>
+  <button class="btn btn-default" style="margin-left:42%" ng-click="createUser(creaName,creaSurname,creaMail,creaWebsite)" >Ajouter</button>
+  <br/>
 
 
-  <input type="button" ng-click="createUser(creaName,creaSurname,creaMail,creaWebsite)" value="Ajouter"></span>
+  <h2>Rechercher un utilisateur</h2>
+  <label >Nom  </label>
+    <input class="form-control" type="text" ng-model="search.name" placeholder="Entrez un nom de famille">
+    <br/>
+  <label>Prénom</label>
+  <input type="text" class="form-control" ng-model="search.surname" placeholder="Entrez un prénom">
   <br/>
 
 
   <br/>
 
-<h3>Liste des utilisateurs:</h3>
+<h2>Liste des utilisateurs</h2>
 
   <span id="error"> </span>
 

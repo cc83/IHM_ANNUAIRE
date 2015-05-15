@@ -42,14 +42,15 @@
   </table>
 
   <br/>
-  <h2>Ajouter un utilisateur</h2>
-  <input type="text" ng-model="newUserName">
-  <input type="text" ng-model="newUserSurname">
-  <input type="text" ng-model="role">
+  <h2>Ajouter un utilisateur au projet</h2>
+  <input type="text" ng-model="newUserName" placeholder="Nom">
+  <input type="text" ng-model="newUserSurname" placeholder="Prénom">
+  <input type="text" ng-model="role" placeholder="Rôle dans le projet">
   <input  type="button" value="ok" ng-click="addUserProject(newUserName,newUserSurname,currentProject.id,role)">
   <br/>
   <span id="notfound" class="text-danger"></span>
-
+  <br/>
+  <span>Voir la <a ng-href="#/users">liste</a> des utilisateurs répertoriés</span>
 
   <br/>
 
